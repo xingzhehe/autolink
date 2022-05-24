@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>AutoLink: Self-supervised Learning of Human Skeletons and Object Outlines by Linking Keypoints</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/citation.css">
+    <link rel="stylesheet" href="css/title.css">
+    <!-- <meta name="google-site-verification" content="QZBN3L69Q-c1oJGtwBx3eOj6ugnkjS7Q2tZUGm-VTkA"/> -->
+</head>
+
+<body>
+    <div class="header" id="home" style="padding-bottom: 90px;"></div>
+
+    <section class="title">
+        AutoLink: Self-supervised Learning of Human Skeletons and Object Outlines by Linking Keypoints
+    </section>
+
+    <section class="author">
+        <a href="https://xingzhehe.github.io/">Xingzhe He</a>
+        <a href="https://www.cs.ubc.ca/~wandt/index.html">Bastian Wandt</a>
+        <a href="https://www.cs.ubc.ca/~rhodin/web/">Helge Rhodin</a>
+        <affiliation>The University of British Columbia</affiliation>
+        <a href="https://arxiv.org/pdf/2205.10636.pdf" class="links">[paper]</a>
+    </section>
+
+    <div class="container">
+        <video src="asset/detection.mp4" type="video/mp4" controls muted autoplay loop>
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="header" id="abstract">Abstract</div>
+    <div class="line"></div>
+
+    <div class="container">
+        <p>
+            Structured representations such as keypoints are widely used in pose transfer, conditional image generation, animation, and 3D reconstruction. However, their supervised learning requires expensive annotation for each target domain. We propose a self-supervised method that learns to disentangle object structure from the appearance with <b> a graph of 2D keypoints linked by straight edges </b>. Both the keypoint location and their pairwise edge weights are learned, <b> given only a collection of images depicting the same object class </b>. The graph is interpretable, for example, AutoLink recovers the human skeleton topology when applied to images showing people. Our key ingredients are i) an encoder that predicts keypoint locations in an input image, ii) a shared graph as a latent variable that links the same pairs of keypoints in every image, iii) an intermediate edge map that combines the latent graph edge weights and keypoint locations in a soft, differentiable manner, and iv) an inpainting objective on randomly masked images. Although simpler, AutoLink outperforms existing self-supervised methods on the established keypoint and pose estimation benchmarks and paves the way for structure-conditioned generative models on more diverse datasets.
+        </p>
+    </div>
+
+    <h1 class="header" id="results">Overview</h1>
+    <div class="line"></div>
+    <div class="container">
+        <img src="asset/overview.jpg">
+        <p>
+        Given an image, we detect keypoints and draw differentiable edges between keypoints according to the learned graph edge weights that is visualized as a color matrix. The method is self-supervised in that the latent edge map and keypoints are learned by reconstructing the masked input images. Note that keypoints are image specific and edge maps are shared.
+        </p>
+    </div>
+
+    <h1 class="header" id="results">Detected Keypoints and Visualized Graph Representation</h1>
+    <div class="line"></div>
+    <div class="container">
+        <img src="asset/teaser_wo_app.png">
+    </div>
+
+    <h1 class="header" id="results">Application: Pose Transfer</h1>
+    <div class="line"></div>
+
+    <div class="container">
+        <p>
+        The learned graph representation can be used to train a pose transfer network on videos. Note that the graph is only learned on a collection of single images. It is stable even when the pose change is large (first row). The subtle details are also captured. See the third row for the mouth and the forth row for the eye blinking.
+        </p>
+        <video src="asset/vox_transfer.mp4" type="video/mp4" controls muted autoplay loop>
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <h1 class="header" id="results">Application: Conditional GAN</h1>
+    <div class="line"></div>
+    <div class="container">
+        <p>
+        The learned graph representation can be used to train a conditional GAN.
+        </p>
+        <img src="asset/con_gan.png">
+    </div>
+
+    <div class="header" id="bibtex">BibTex</div>
+    <div class="line"></div>
+
+    <section class="citation">
+        @article{he2022autolink,</br>
+            title={AutoLink: Self-supervised Learning of Human Skeletons and Object Outlines by Linking Keypoints},</br>
+            author={He, Xingzhe and Wandt, Bastian and Rhodin, Helge},</br>
+            journal={arXiv preprint arXiv:2205.10636},</br>
+            year={2022}</br>
+        }
+    </section>
+
+</body>
+
+</html>
