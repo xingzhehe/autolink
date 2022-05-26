@@ -62,7 +62,7 @@
 
     <div class="container">
         <p>
-        The learned graph representation can be used to train a pose transfer network on videos. Note that the graph is only learned on a collection of single images. It is stable even when the pose change is large (first row). The subtle details are also captured. See the third row for the mouth and the forth row for the eye blinking.
+        The learned graph representation can be used to train a pose transfer network on videos. Note that the graph is only learned on a collection of single images, and so is the translation model. Nevertheless, it is stable even when the pose change is large (first row), and the subtle details, such as mouth motion (third row) and eye blinking (forth row), are also captured.
         </p>
         <video src="asset/vox_transfer.mp4" type="video/mp4" controls muted autoplay loop>
             Your browser does not support the video tag.
@@ -73,7 +73,7 @@
     <div class="line"></div>
     <div class="container">
         <p>
-        The learned graph representation can be used to train a conditional GAN.
+            The learned graph representation can be used to train a conditional GAN. In this experiment, we trained a single detector and GAN on AFHQ, where multiple animals are trained at the same time. This demonstrates the robustness to shape variations and capability of learning a shared animal head model.
         </p>
         <img src="asset/con_gan.png">
     </div>
